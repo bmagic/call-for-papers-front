@@ -14,7 +14,7 @@ function * getUser () {
 function * getToken (action) {
   const state = yield select()
   try {
-    const result = yield getUrl(`http://localhost:3000/v1/auth/discord?code=${action.code}`, state)
+    const result = yield getUrl(`http://localhost:3000/v1/oauth/${action.service}?code=${action.code}`, state)
     console.log(result)
     yield put({ type: 'GET_TOKEN_SUCCESS', token: result.data.token })
   } catch (e) {

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 class TalkForm extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { name: '', class: '', spec: '' }
+    this.state = { name: '' }
 
     this.onInputChange = this.onInputChange.bind(this)
   }
@@ -18,9 +18,7 @@ class TalkForm extends React.Component {
   }
 
   addTalk () {
-    if (!(this.state.name === '')) {
-      this.props.dispatch({ type: 'ADD_TALK', talk: { name: this.state.name } })
-    }
+    this.props.dispatch({ type: 'ADD_USER_TALK', talk: { name: this.state.name } })
   }
 
   render () {
@@ -32,7 +30,7 @@ class TalkForm extends React.Component {
             <input className='input' type='text' placeholder='Name' value={this.state.name} onChange={e => this.onInputChange('name', e)} />
           </div>
         </div>
-        <div className='button' disabled={this.state.name === ''} onClick={() => this.addTalk()} >Add a new talk</div>
+        <button className='button' disabled={this.state.name === ''} onClick={() => this.addTalk()} >Add a new talk</button>
 
       </div>
 

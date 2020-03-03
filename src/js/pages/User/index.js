@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../Layout'
+import Layout from '../../components/Layout'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 

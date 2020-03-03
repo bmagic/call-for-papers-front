@@ -1,39 +1,47 @@
 import React from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
+import Login from '../../pages/Login'
 
 class PrivateRoute extends React.Component {
   render () {
-    const { token, history, component: Component, ...rest } = this.props
+    const { user, token, component: Component, ...rest } = this.props
 
-    if (token === null) {
-      history.push('/login')
+    if (user === null) {
+      if (token) {
+        return <div>Chargement en cours</div>
+      } else {
+        return <Login />
+      }
     }
 
-    return (
-      <Route {...rest} render={
-        (props) => {
-          return <Component {...props} />
-        }
-      }/>
-    )
+    if (user) {
+      return (
+        <Route {...rest} render={
+          (props) => {
+            return <Component {...props} />
+          }
+        }/>
+      )
+    }
   }
 }
 
 PrivateRoute.propTypes = {
   dispatch: PropTypes.func,
-  location: PropTypes.object,
   component: PropTypes.any,
-  history: PropTypes.object,
-  token: PropTypes.string
+  token: PropTypes.string,
+  user: PropTypes.object,
+  permission: PropTypes.array
 }
 
 function mapStateToProps (state) {
   return {
+    user: state.user,
     token: state.token
   }
 }
 
-export default withRouter(connect(mapStateToProps)(PrivateRoute))
+export default connect(mapStateToProps)(PrivateRoute)

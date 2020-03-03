@@ -18,22 +18,25 @@ const reducer = (state = initialState, action) => {
         ...state,
         errors: []
       }
-    case 'CLEAR_TOKEN':
+    case 'DISCONNECT':
       return {
         ...state,
-        token: null
+        token: null,
+        user: null
       }
     case 'GET_USER_SUCCESS':
       return {
         ...state,
         user: action.user
       }
+    case 'REGISTER_SUCCESS':
+    case 'LOGIN_SUCCESS':
     case 'GET_TOKEN_SUCCESS':
       return {
         ...state,
         token: action.token
       }
-    case 'GET_TALKS_SUCCESS':
+    case 'GET_USER_TALKS_SUCCESS':
       return {
         ...state,
         talks: action.talks

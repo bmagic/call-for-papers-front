@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import Error from '../Error'
+import Error from '../../components/Error'
 
 class AuthRedirect extends React.Component {
   componentDidMount () {

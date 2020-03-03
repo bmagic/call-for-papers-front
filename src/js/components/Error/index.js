@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 const Error = ({ errors, dispatch }) => {
-  console.log(errors)
   if (errors.length === 0) return null
   return (
     <div className='notification is-danger'>

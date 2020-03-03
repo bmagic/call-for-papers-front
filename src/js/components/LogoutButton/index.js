@@ -6,8 +6,7 @@ import { connect } from 'react-redux'
 const LogoutButton = ({ history, dispatch }) => {
   return (
     <div className='button' onClick={() => {
-      dispatch({ type: 'CLEAR_TOKEN' })
-      history.push('/login')
+      dispatch({ type: 'DISCONNECT' })
     }}>
     Logout
     </div>

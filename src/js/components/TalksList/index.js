@@ -6,7 +6,7 @@ import './styles.scss'
 
 class TalksList extends React.Component {
   componentDidMount () {
-    this.props.dispatch({ type: 'GET_TALKS' })
+    this.props.dispatch({ type: 'GET_USER_TALKS' })
   }
 
   render () {
@@ -26,7 +26,7 @@ class TalksList extends React.Component {
               </div>
               <div className='level-right'>
                 <div className='level-item'>
-                  <button className='button is-text' onClick={() => dispatch({ type: 'DELETE_TALK', talkId: talk._id })}>
+                  <button className='button is-text' onClick={() => dispatch({ type: 'DELETE_USER_TALK', talkId: talk._id })}>
                     <i className='fa fa-trash-alt' />
                   </button>
                 </div>

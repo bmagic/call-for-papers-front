@@ -1,7 +1,7 @@
 import React from 'react'
-import Layout from '../Layout'
-import TalkForm from '../TalkForm'
-import TalksList from '../TalksList'
+import Layout from '../../components/Layout'
+import TalkForm from '../../components/TalkForm'
+import TalksList from '../../components/TalksList'
 
 const Home = () => {
   return (
@@ -9,11 +9,10 @@ const Home = () => {
       <h1 className='title'>Call For Papers</h1>
       <div className='columns'>
         <div className='column is-8'>
-          //TODO
+          <TalksList/>
         </div>
         <div className='column is-4'>
           <TalkForm/>
-          <TalksList/>
         </div>
       </div>
     </Layout>
